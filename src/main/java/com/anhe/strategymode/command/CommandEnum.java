@@ -5,8 +5,11 @@ package com.anhe.strategymode.command;
  */
 public enum CommandEnum {
 
-    SAY("say", "com.anhe.strategymode.child.SayInnerCommand"),
-    WALK("walk", "com.anhe.strategymode.child.WalkInnerCommand");
+    //    SAY("say", "com.anhe.strategymode.child.SayInnerCommand"),
+//    WALK("walk", "com.anhe.strategymode.child.WalkInnerCommand");
+    SAY("say", "sayInnerCommand"),
+    WALK("walk", "walkInnerCommand"),
+    SWIM("swim","swimInnerCommand");
     private String command;
     private String innerCommand;
 
@@ -23,7 +26,6 @@ public enum CommandEnum {
     public String getInnerCommand() {
         return innerCommand;
     }
-
 
 
 }

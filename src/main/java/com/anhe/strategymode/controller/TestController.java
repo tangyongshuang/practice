@@ -4,6 +4,7 @@ import com.anhe.strategymode.service.InnerCommandContext;
 import com.anhe.strategymode.service.InnerCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,11 +17,14 @@ public class TestController {
 
     private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
+    @Autowired
+    private InnerCommandContext context;
+
     @RequestMapping("/{msg}")
     public String process(@PathVariable(value = "msg") String msg) {
         logger.info("receive msg : {}", msg);
         try {
-            InnerCommand instance = InnerCommandContext.getInstance(msg);
+            InnerCommand instance = context.getInstance(msg);
             instance.process(msg);
         } catch (Exception e) {
             e.printStackTrace();

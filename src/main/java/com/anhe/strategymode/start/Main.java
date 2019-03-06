@@ -14,9 +14,9 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            String msg = "say";
-            InnerCommand instance = InnerCommandContext.getInstance(msg);
-            instance.process(msg);
+//            String msg = "say";
+//            InnerCommand instance = InnerCommandContext.getInstance(msg);
+//            instance.process(msg);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("command error", e.getMessage());
